@@ -13,9 +13,17 @@ func NewProductService(repo *repositories.ProductRepository) *ProductService {
 	return &ProductService{repo: repo}
 }
 
-func (s *ProductService) GetAll() ([]models.Product, error) {
-	return s.repo.GetAll()
+// func (s *ProductService) GetAll() ([]models.Product, error) {
+// 	return s.repo.GetAll()
+// }
+
+func (s *ProductService) GetAll(name string) ([]models.Product, error) {
+	return s.repo.GetAll(name) // Error di sini akan hilang jika Step 3 dilakukan
 }
+
+// func (s *ProductService) GetAll(name string) ([]models.Product, error) {
+// 	return s.repo.GetAll(name)
+// }
 
 func (s *ProductService) Create(data *models.Product) error {
 	return s.repo.Create(data)
